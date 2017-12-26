@@ -1,12 +1,3 @@
-<script type="text/javascript">
-   jQuery(document).ready(function($){
-      display('<?php echo $layout["display"]?>');
-      $("#sort_product").val("<?php echo $layout['sort']?>");
-      $("#limit_product").val("<?php echo $layout['limit']?>");   
-   });
-   
-</script>
-
 <div id="column-left">
    <div class="box">
       <div class="box-heading">Kategori</div>
@@ -53,7 +44,7 @@
                <p class="wrap_price"> <span class="price-old"><?php echo format_rupiah($pilihan['harga_lama'])?></span> <span class="price-new"><?php echo format_rupiah($pilihan['harga'])?></span> </p>
                <?php } ?>  
                <p class="submit">
-                  <input type="button" value="Add to Cart" class="button" onclick="addtocart(<?php echo $pilihan['id']?>)">
+                  <input type="button" value="Add to Cart" class="button">
                </p>
             </div>
             <?php } ?>
@@ -81,7 +72,7 @@
                <p class="wrap_price"> <span class="price-old"><?php echo format_rupiah($diskon['harga_lama'])?></span> <span class="price-new"><?php echo format_rupiah($diskon['harga'])?></span> </p>
                <?php } ?>  
                <p class="submit">
-                  <input type="button" value="Add to Cart" class="button" onclick="addtocart(<?php echo $diskon['id']?>)">
+                  <input type="button" value="Add to Cart" class="button">
                </p>
             </div>
             <?php } ?>
@@ -109,7 +100,7 @@
                <p class="wrap_price"> <span class="price-old"><?php echo format_rupiah($terbaru['harga_lama'])?></span> <span class="price-new"><?php echo format_rupiah($terbaru['harga'])?></span> </p>
                <?php } ?>  
                <p class="submit">
-                  <input type="button" value="Add to Cart" class="button" onclick="addtocart(<?php echo $terbaru['id']?>)">
+                  <input type="button" value="Add to Cart" class="button">
                </p>
             </div>
             <?php } ?>
@@ -119,11 +110,9 @@
    <div class="clear"></div>
 </div>
 <div id="content">
-   <div class="breadcrumb"> &nbsp;<a href="<?php echo site_url()?>">Home&nbsp;</a> » &nbsp;Beli&nbsp;<a href="#"><?php echo $kategori_detail['nama']?>&nbsp;</a> </div>
-   <h1><span class="h1-top">Beli&nbsp;<?php echo $kategori_detail['nama']?></span></h1>
-   <div class="category-info">
-      <?php echo $kategori_detail['keterangan']?>
-   </div>
+   <div class="breadcrumb"> &nbsp;<a href="<?php echo site_url()?>">Home&nbsp;</a> » &nbsp;Merk&nbsp;<a href="#"><?php echo $merk_slug?>&nbsp;</a> </div>
+   <h1><span class="h1-top">Merk&nbsp;<?php echo $merk_slug?></span></h1>
+  
    <div class="product-filter">
       <div class="display">
          <label>Display:</label>
@@ -156,7 +145,18 @@
    </div>
    <div class="product-compare"><a href="#" id="compare-total">Product Compare (0)</a></div>
    <div class="product-list">
-     
+      <!-- <div class="box-product">
+         <span class="new">Sale</span> <a class="image" href="product.html" title="View more"> <img src="image/ex/p1-small.jpg" alt=""> <span class="new2">Sale</span> </a>
+         <div class="list_grid_right">
+            <h3 class="name"><a href="product.html" title="">Brown Shoes for Boys</a></h3>
+            <p class="wrap_price"> <span class="price-old">$119.50</span> <span class="price-new">$60.75</span> <span class="price-tax">Ex Tax: $50.00</span> </p>
+            <p class="description">Tudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
+            <p class="submit">
+               <input type="button" value="Add to Cart" class="button">
+            </p>
+            <p class="links_add"> <a>Add to Wish List</a> <a>Add to Compare</a> </p>
+         </div>
+      </div> -->
       <?php foreach ($produk->result_array() as $prod) { ?>
         <div class="box-product">
            <a class="image" href="<?php echo site_url($prod['kategori_slug'] . '/' . $prod['slug'])?>" title="View more"> <img src="<?php echo load_image('uploads/gambar_produk/' . $prod['gambar'],184,184,1,0)?>" alt=""></a>
@@ -165,18 +165,45 @@
               <p class="wrap_price"> <span class="price"><?php echo format_rupiah($prod['harga'])?></span> <!--<span class="price-tax">Ex Tax: $100.00</span>--> </p>
               <p class="description"><?php echo limit_text($prod['deskripsi'],400)?></p>
               <p class="submit">
-                 <input type="button" value="Add to Cart" class="button" onclick="addtocart(<?php echo $prod['id']?>)">
+                 <input type="button" value="Add to Cart" class="button">
               </p>
-              <!-- <p class="links_add"> <a>Add to Wish List</a> <a>Add to Compare</a> </p> -->
+              <p class="links_add"> <a>Add to Wish List</a> <a>Add to Compare</a> </p>
            </div>
         </div>
       <?php } ?>
 
-      
+      <!-- <div class="box-product">
+         <a class="image" href="product.html" title="View more"> <img src="image/ex/p3-small.jpg" alt=""></a>
+         <div class="list_grid_right">
+            <h3 class="name"><a href="product.html" title="">Brown Shoes for Boys</a></h3>
+            <p class="wrap_price"> <span class="price">$119.50</span> <span class="price-tax">Ex Tax: $100.00</span> </p>
+            <p class="description">Tudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
+            <p class="submit">
+               <input type="button" value="Add to Cart" class="button">
+            </p>
+            <p class="links_add"> <a>Add to Wish List</a> <a>Add to Compare</a> </p>
+         </div>
+      </div> -->
+      <!-- <div class="box-product last-item row-first">
+         <a class="image" href="product.html" title="View more"> <img src="image/ex/p4-small.jpg" alt=""></a>
+         <div class="list_grid_right">
+            <h3 class="name"><a href="product.html" title="">Brown Shoes for Boys</a></h3>
+            <p class="wrap_price"> <span class="price">$119.50</span> <span class="price-tax">Ex Tax: $100.00</span> </p>
+            <p class="description">Tudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
+            <p class="submit">
+               <input type="button" value="Add to Cart" class="button">
+            </p>
+            <p class="links_add"> <a>Add to Wish List</a> <a>Add to Compare</a> </p>
+         </div>
+      </div> -->
    </div>
    <div class="pagination">
       <div class="results"><?php echo $this->pagination->create_links();?></div>
    </div>
 </div>
 
-
+<script type="text/javascript">
+   display('<?php echo $layout["display"]?>');
+   $("#sort_product").val("<?php echo $layout['sort']?>");
+   $("#limit_product").val("<?php echo $layout['limit']?>");
+</script>

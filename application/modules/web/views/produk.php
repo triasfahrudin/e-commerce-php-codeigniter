@@ -1,11 +1,7 @@
-<link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/colorbox.css');?>">
-<!-- <script type="text/JavaScript" src="<?php echo site_url('assets/web/js/jquery.colorbox-min.js');?>"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.30/jquery.colorbox.js"></script>
-<script src="https://fastcdn.org/Readmore.js/2.1.0/readmore.min.js"></script>
 
 <div id="column-left">
    <div class="box">
-      <div class="box-heading">Categories</div>
+      <div class="box-heading">Kategori</div>
       <div class="box-content">
          <ul class="box-category">
             <?php foreach ($menus->result_array() as $menu) { ?>
@@ -29,102 +25,62 @@
          </ul>
       </div>
    </div>
-   <!-- <div class="box">
+   <div class="box">
       <div>
-         <h1 class="title_module"><span>Featured</span></h1>
+         <h1 class="title_module"><span>Pilihan</span></h1>
          <div class="box-content">
+            <?php foreach ($produk_pilihan->result_array() as $pilihan) { ?>
             <div class="box-product">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-1.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price">$589.50</span> </p>
+               <a class="image" href="<?php echo site_url($pilihan['kategori_slug'] . '/' . $pilihan['slug']) ?>" title="View more"> 
+                  <img src="<?php echo load_image('uploads/gambar_produk/' . $pilihan['gambar'],55,47,1,0)?>" alt=""> 
+               </a>
+               <h3 class="name"><a href="<?php echo site_url($pilihan['kategori_slug'] . '/' . $pilihan['slug']) ?>" title=""><?php echo limit_text($pilihan['nama'],20); ?></a></h3>
+               <!-- <p class="wrap_price"> 
+                  <span class="price-old">$119.50</span> 
+                  <span class="price-new">$107.75</span> 
+               </p> -->
+               <?php if($pilihan['status_harga'] === 'normal'){ ?>
+               <p class="wrap_price"> <span class="price"><?php echo format_rupiah($pilihan['harga'])?></span> </p>
+               <?php }else{ ?>
+               <p class="wrap_price"> <span class="price-old"><?php echo format_rupiah($pilihan['harga_lama'])?></span> <span class="price-new"><?php echo format_rupiah($pilihan['harga'])?></span> </p>
+               <?php } ?>  
                <p class="submit">
                   <input type="button" value="Add to Cart" class="button">
                </p>
             </div>
-            <div class="box-product">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-2.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price">$120.68</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
-            <div class="box-product">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-3.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price-old">$119.50</span> <span class="price-new">$107.75</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
-            <div class="box-product">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-4.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price">$236.99</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
-            <div class="box-product last-item">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-5.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price">$1,177.00</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
+            <?php } ?>
          </div>
       </div>
-   </div> -->
-   <!-- <div class="clear"></div> -->
-   <!-- <div class="box">
+   </div>
+   <div class="clear"></div>
+   <div class="box">
       <div>
-         <h1 class="title_module"><span>Specials</span></h1>
+         <h1 class="title_module"><span>Sedang Diskon</span></h1>
          <div class="box-content">
+            <?php foreach ($produk_diskon->result_array() as $diskon) { ?>
             <div class="box-product">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-1.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price">$589.50</span> </p>
+               <a class="image" href="<?php echo site_url($diskon['kategori_slug'] . '/' . $diskon['slug']) ?>" title="View more"> 
+                  <img src="<?php echo load_image('uploads/gambar_produk/' . $diskon['gambar'],55,47,1,0)?>" alt=""> 
+               </a>
+               <h3 class="name"><a href="<?php echo site_url($diskon['kategori_slug'] . '/' . $diskon['slug']) ?>" title=""><?php echo limit_text($diskon['nama'],20); ?></a></h3>
+               <!-- <p class="wrap_price"> 
+                  <span class="price-old">$119.50</span> 
+                  <span class="price-new">$107.75</span> 
+               </p> -->
+               <?php if($diskon['status_harga'] === 'normal'){ ?>
+               <p class="wrap_price"> <span class="price"><?php echo format_rupiah($diskon['harga'])?></span> </p>
+               <?php }else{ ?>
+               <p class="wrap_price"> <span class="price-old"><?php echo format_rupiah($diskon['harga_lama'])?></span> <span class="price-new"><?php echo format_rupiah($diskon['harga'])?></span> </p>
+               <?php } ?>  
                <p class="submit">
                   <input type="button" value="Add to Cart" class="button">
                </p>
             </div>
-            <div class="box-product">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-2.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price">$120.68</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
-            <div class="box-product">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-3.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price-old">$119.50</span> <span class="price-new">$107.75</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
-            <div class="box-product">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-4.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price">$236.99</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
-            <div class="box-product last-item">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-5.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price">$1,177.00</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
+            <?php } ?>
          </div>
       </div>
-   </div> -->
-   <!-- <div class="clear"></div> -->
+   </div>
+   <div class="clear"></div>
    <div class="box">
       <div>
          <h1 class="title_module"><span>Terbaru</span></h1>
@@ -149,50 +105,7 @@
                </p>
             </div>
             <?php } ?>
-         </div>   
-         <!-- <h1 class="title_module"><span>Latest</span></h1>
-         <div class="box-content">
-            <div class="box-product">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-1.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price">$589.50</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
-            <div class="box-product">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-2.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price">$120.68</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
-            <div class="box-product">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-3.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price-old">$119.50</span> <span class="price-new">$107.75</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
-            <div class="box-product">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-4.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price">$236.99</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
-            <div class="box-product last-item">
-               <a class="image" href="product.html" title="View more"> <img src="image/ex/pro-5.png" alt=""> </a>
-               <h3 class="name"><a href="product.html" title="">Lorem ipsum dolor sit</a></h3>
-               <p class="wrap_price"> <span class="price">$1,177.00</span> </p>
-               <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
-               </p>
-            </div>
-         </div> -->
+         </div>
       </div>
    </div>
    <div class="clear"></div>
@@ -245,18 +158,26 @@
 
             </div>
          </div>
-         <div class="desc2"> <span>Merk:</span> <a href="brands.html"><?php echo $produk['merk']?></a><br>
+         <div class="desc2"> <span>Merk:</span> <a href="<?php echo site_url('brands/' . $produk['merk_slug'])?>"><?php echo $produk['merk']?></a><br>
             <span>Product Code:</span> 00123<br>
             <span>Availability:</span> In Stock
          </div>
          <div class="cart">
-            <div>Qty:
-               <input type="text" name="quantity" size="2" value="1">
-               &nbsp;
-               <input type="button" value="Add to Cart" id="button-cart" class="button">
-               <span>&nbsp;&nbsp;- OR -&nbsp;&nbsp;</span> <span class="links"><a>Add to Wish List</a><br>
-               <a>Add to Compare</a></span>
-            </div>
+            <form method="post" action="">
+               <input type="hidden" name="id" value="<?php echo $produk['id']?>">
+               <input type="hidden" name="price" value="<?php echo $produk['harga']?>">
+               <input type="hidden" name="name" value="<?php echo $produk['nama']?>">
+               <input type="hidden" name="berat" value="<?php echo $produk['berat']?>">
+               
+
+               <div>Qty:
+                  <input type="text" name="qty" size="2" value="1">
+                  &nbsp;
+                  <input type="submit" value="Add to Cart" id="button-cart" class="button">
+                  <span>&nbsp;&nbsp;- OR -&nbsp;&nbsp;</span> <span class="links"><a>Add to Wish List</a><br>
+                  <a>Add to Compare</a></span>
+               </div>
+            </form>
          </div>
          <div class="review">
             <div><img src="<?php echo site_url('assets/web/image/stars-4.png');?>" alt="0 reviews"></div>

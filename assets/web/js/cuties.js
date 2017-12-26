@@ -102,7 +102,7 @@ jQuery(document).ready(function($){
 };
 
 $(function () { 
-    $("SELECT").selectBox(); 
+    // $("SELECT").selectBox(); 
 });
 
 $('.checkout-heading').live('click', function() {
@@ -134,8 +134,27 @@ $('#tabs a').tabs();
 
 });
 
+function limit_product(sel){
+	var val = sel.value;
+	$.post( base_url + "/save-layout", { limit: val } )
+	 .done(function( data ){
+	 	 location.reload();
+	 });
+}
+
+function sort_product(sel){
+	var val = sel.value;
+	$.post( base_url + "/save-layout", { sort: val } )
+	 .done(function( data ){
+	 	 location.reload();
+	 });	
+}
+
 function display(view) {
-	if (view == 'list') {
+
+	$.post( base_url + "/save-layout", { display: view } );
+
+	if (view == 'list') {		
 		$('.product-grid').attr('class', 'product-list');
 		$('.display').html('<label>Display:</label><p><span id="list" class="list_on"></span> <span id="grid" onclick="display(\'grid\');"></span></p>');
 	} else {
@@ -143,3 +162,30 @@ function display(view) {
 		$('.display').html('<label>Display:</label><p><span id="list" onclick="display(\'list\');"></span><span id="grid" class="grid_on"></span></p>');
 	}
 }
+
+function addtocart(id){
+	$.post( base_url + "/addtocart", { product_id: id } )
+	 .done(function( data ){
+	 	 // location.reload();
+	 	 window.location.replace(base_url + "/keranjang-belanja");
+	 });	
+}
+
+function update_cart_qty(row_id){
+	var rowid = row_id.split('|')[0];
+	var qty = $('#' + row_id.split('|')[1]).val();
+	
+	$.post( base_url + "/updatecart", { rowid: rowid,qty:qty } )
+	 .done(function( data ){
+	 	 // location.reload();
+	 	 window.location.replace(base_url + "/keranjang-belanja");
+	 });	
+}
+
+// $('#product_sort').on('change', function() {
+//   alert( this.value );
+// })
+
+// $('.selectBox').selectBox().change(function () {
+//     alert($(this).val());
+// });

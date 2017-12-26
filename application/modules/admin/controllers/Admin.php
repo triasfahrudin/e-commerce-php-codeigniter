@@ -214,6 +214,7 @@ class Admin extends MX_Controller
 
 
           $crud->field_type('slug', 'readonly');
+          $crud->field_type('tgl_buat', 'hidden');
 
           $this->breadcrumbs->push('Dashboard', '/admin');
           $this->breadcrumbs->push('Produk', '/admin/produk');
@@ -481,5 +482,91 @@ class Admin extends MX_Controller
         }
     }
 
+
+    public function blog_kategori(){
+      try {
+          $crud = new Grocery_CRUD();
+
+          $crud->set_table('blog_kategori');
+          $crud->set_subject('Blog Kategori');
+          //judul,penulis,tanggal,kategori,komentar
+          $crud->columns('nama', 'deskripsi');
+          $crud->display_as('nama','Nama Kategori');
+          $crud->display_as('deskripsi','Deskripsi');
+
+
+          $this->breadcrumbs->push('Dashboard', '/admin');
+          $this->breadcrumbs->push('Settings', '/admin/settings');
+          $this->breadcrumbs->push('Data Blog', '/admin/blog');
+          $this->breadcrumbs->push('Kategori Blog', '/admin/blog-kategori');
+
+
+
+          $extra = array(
+            // 'breadcrumbs' => $this->breadcrumbs->show(),
+            'page_title' => 'Kategori',
+          );
+
+          $output = $crud->render();
+          $output = array_merge((array) $output, $extra);
+          $this->_page_output($output);
+
+      } catch (Exception $e) {
+          show_error($e->getMessage().' --- '.$e->getTraceAsString());
+      }
+    }
+
+    public function blog()
+    {
+        try {
+            $this->load->library(array('grocery_CRUD','Grocery_Btn'));
+            $crud = new Grocery_CRUD();
+
+            $crud->set_table('blog');
+            $crud->set_subject('Data Blog');
+
+            // $crud->add_fields(array('level','username','password','email'));
+            // $crud->edit_fields(array('level','username','email'));
+
+            $crud->required_fields('judul', 'konten');
+            $crud->set_field_upload('gambar', 'uploads/blogs');
+            
+            $crud->columns('judul', 'konten');
+            // $crud->unique_fields(array('username','email'));
+
+            // $crud->unset_read_fields('password');
+            $crud->field_type('dibuat', 'hidden');
+            $crud->field_type('diupdate', 'hidden');
+            $crud->field_type('slug', 'hidden');
+
+
+            $this->breadcrumbs->push('Dashboard', '/admin');
+            $this->breadcrumbs->push('Settings', '/admin/settings');
+            $this->breadcrumbs->push('Data Blog', '/admin/blog');
+
+            $this->grocery_btn->push(site_url('admin/blog-kategori'), 'Kategori');
+
+            $kategori = array();
+            $kat = $this->db->get('blog_kategori');
+            foreach ($kat->result_array() as $k) {
+              $kategori[$k['id']] = $k['nama'];
+            }
+
+            $crud->field_type('kategori','multiselect',$kategori);
+
+
+            $extra = array(
+              'page_title' => 'Data Blog',
+              'grocery_btn' => $this->grocery_btn->show(),   
+            );
+            $output = $crud->render();
+
+            $output = array_merge((array) $output, $extra);
+
+            $this->_page_output($output);
+        } catch (Exception $e) {
+            show_error($e->getMessage().' --- '.$e->getTraceAsString());
+        }
+    }
 
 }

@@ -21,6 +21,12 @@
         <h4 class="">Slide Depan</h4>
       </a>
     </div>
+    <div class="col-lg-2" style="text-align: center;">
+      <a href="<?php echo site_url('admin/blog')?>" class="thumbnail" style="color:#6D72EC">
+        <i class="fa fa-pencil" style="font-size: 80px; margin: 10px 0"></i><br>
+        <h4 class="">Blog</h4>
+      </a>
+    </div>
     <!-- <div class="col-lg-2" style="text-align: center;">
       <a href="<?php echo site_url('cabang/paket-status/103')?>" class="thumbnail"  style="color:#f0ad4e">
         <i class="fa fa-mail-forward" style="font-size: 80px; margin: 10px 0"></i><br>

@@ -8,29 +8,18 @@
       <meta name="description" content="Things For Cuties - A Premium Responsive Kids / Baby Related Shop Template, available at Themeforest.">
       <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700">
       <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Gochi+Hand">
-      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/stylesheet.css')  . '?v=' . uniqid('css.',true);?>">
-      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/mobile.css') . '?v=' . uniqid('css.',true)?>">
-      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/cloud-zoom.css') . '?v=' . uniqid('css.',true)?>">
-      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/carousel.css') . '?v=' . uniqid('css.',true)?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/stylesheet.css');?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/mobile.css')?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/cloud-zoom.css')?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/carousel.css')?>">
       <!-- <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script> -->
-      <script type="text/javascript">
-         var base_url = "<?php echo site_url('web')?>";         
-      </script>
-      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-      <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery.jcarousel.min.js'). '?v=' . uniqid('js.',true);?>"></script>
-      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jcarousel/0.3.0/jquery.jcarousel.min.js"></script> -->
-      <!-- <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery.cycle.all.js'). '?v=' . uniqid('js.',true);?>"></script> -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle/2.9999.8/jquery.cycle.all.min.js"></script>
-      <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery.selectBox.js'). '?v=' . uniqid('js.',true);?>"></script>
-      <script type="text/JavaScript" src="<?php echo site_url('assets/web/js/cloud-zoom.1.0.2.js'). '?v=' . uniqid('js.',true);?>"></script>
+      <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery-1.7.1.min.js');?>"></script>
+      <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery.jcarousel.min.js');?>"></script>
+      <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery.cycle.all.js');?>"></script>
+      <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery.selectBox.js');?>"></script>
+      <script type="text/JavaScript" src="<?php echo site_url('assets/web/js/cloud-zoom.1.0.2.js');?>"></script>
       <script type="text/JavaScript" src="<?php echo site_url('assets/web/js/cuties.js') . '?v=' . uniqid('js.',true);?>"></script>
       <script src="https://cdn.rawgit.com/johnboker/jquery.blink/944ae640/jquery.blink.js"></script>
-
-      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/colorbox.css');?>">
-      <!-- <script type="text/JavaScript" src="<?php echo site_url('assets/web/js/jquery.colorbox-min.js');?>"></script> -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.30/jquery.colorbox.js"></script>
-      <script src="https://fastcdn.org/Readmore.js/2.1.0/readmore.min.js"></script>
-
 
       <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -41,39 +30,6 @@
            font-size: 18px; letter-spacing: 1px;
            font-weight: normal;  margin: 0px 0px 0px 0px;
          }
-
-         
-         .pagination {
-             display: inline-block;
-             text-align: center;
-         }
-
-         .pagination a {
-             color: black;
-             float: left;
-             padding: 8px 16px;
-             text-decoration: none;
-             border: 1px solid #ddd;
-         }
-
-         .pagination a.active {
-             background-color: #4CAF50;
-             color: white;
-             border: 1px solid #4CAF50;
-         }
-
-         .pagination a:hover:not(.active) {background-color: #ddd;}
-
-         .pagination a:first-child {
-             border-top-left-radius: 5px;
-             border-bottom-left-radius: 5px;
-         }
-
-         .pagination a:last-child {
-             border-top-right-radius: 5px;
-             border-bottom-right-radius: 5px;
-         }
-
       </style>
    </head>
    <body>
@@ -167,7 +123,8 @@
                      <?php } ?>
                      <a href="<?php echo site_url('keranjang-belanja');?>">Keranjang</a>
                      <a href="<?php echo site_url('konfirmasi-pemesanan')?>">Konfirmasi Pemesanan</a>
-                  </div>                  
+                  </div>   
+                         
                </div>
             </div>
          </div>
@@ -418,7 +375,6 @@
             <p>Things for Cuties © 2013 - Template by <a href="http://themeforest.net/user/ssievert?ref=ssievert">ssievert</a></p>
          </div>
       </div>
-      
       <script type="text/javascript">
         $('.error').blink(100);
       </script>

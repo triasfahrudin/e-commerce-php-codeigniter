@@ -44,6 +44,11 @@
       <script src="<?php echo site_url('assets/manage/js/base64.js')?>"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"></script>
 
+      <script type="text/javascript">
+         $(document).ready(function(){
+          <?php echo @$grocery_btn?>
+         });
+      </script>
    </head>
    <body>
       <nav class="navbar navbar-default navbar-static-top">

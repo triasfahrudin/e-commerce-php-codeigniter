@@ -55,8 +55,14 @@ $route['404_override'] = 'Custom_404';
 $route['beli-(:any)'] = 'web/beli/$1';
 $route['beli-(:any)/(:any)'] = 'web/beli/$1/$2';
 
+$route['brands/(:any)'] = 'web/brands/$1';
+$route['keranjang-belanja'] = 'web/keranjang-belanja';
+
 $route['login'] = 'web/login';
 $route['buat-akun'] = 'web/buat-akun';
+$route['lupa-password'] = 'web/lupa-password';
+
+// $route['akunku'] = 'web/'
 
 
 $route['translate_uri_dashes'] = TRUE;

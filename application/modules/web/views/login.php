@@ -1,3 +1,5 @@
+<script src="https://cdn.rawgit.com/johnboker/jquery.blink/944ae640/jquery.blink.js"></script>
+
 <div id="content">
    <div class="breadcrumb"> <a href="index.html">Beranda</a> » <a href="#">Login</a> </div>
    <h1><span class="h1-top">Login Atau Buat Akun Baru</span></h1>
@@ -8,17 +10,19 @@
             <div class="left">
                <form method="post" action="<?php echo site_url('buat-akun')?>">
                 <h2>Buat Akun Baru</h2>
-                <?php echo validation_errors(); ?>
+                <h3>
+                <?php echo validation_errors('<div class="error" style="color:#FF3F3F">', '</div>'); ?>
+                </h3>
                  <span class="required">*</span> Nama Lengkap:<br>
-                 <input type="text" name="nama_lengkap" value="" class="large-field" required="">
+                 <input type="text" name="nama_lengkap" value="<?php echo set_value('nama_lengkap'); ?>" class="large-field" required="">
                  <br>
                  <br>              
                  <span class="required">*</span> E-Mail:<br>
-                 <input type="text" name="email" value="" class="large-field" required="">
+                 <input type="text" name="email" value="<?php echo set_value('email'); ?>" class="large-field" required="">
                  <br>
                  <br>
                  <span class="required">*</span> Telephone:<br>
-                 <input type="text" name="telp" value="" class="large-field" required="">
+                 <input type="text" name="telp" value="<?php echo set_value('telp'); ?>" class="large-field" required="">
                  <br>
                  <br>
                  <input type="submit" value="Lanjut" id="button-account" class="button">
@@ -49,3 +53,7 @@
       </div>
    </div>
 </div>
+
+<script type="text/javascript">
+  $('.error').blink(100);
+</script>
