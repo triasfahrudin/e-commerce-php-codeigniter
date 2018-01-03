@@ -1,5 +1,5 @@
 <div id="content">
-   <div class="breadcrumb"> <a href="index.html">Home</a> » <a href="#">Shopping Cart</a> </div>
+   <div class="breadcrumb"> <a href="<?php echo site_url();?>">Beranda</a> » <a href="#">Shopping Cart</a> </div>
    <h1><span class="h1-top">Keranjang Belanja        &nbsp;(<?php echo round($berat_total/1000,2);?> Kg) </span></h1>
    <!-- <form action="" method="post" enctype="multipart/form-data"> -->
       <div class="cart-info" style="margin-bottom: 0px">
@@ -11,13 +11,13 @@
                   <!-- <td class="model">Model</td> -->
                   <td class="quantity">Qty</td>
                   <td class="price">Harga</td>
-                  <td class="total">Total</td>
+                  <td class="total">Sub Total</td>
                </tr>
             </thead>
             <tbody>
                <?php foreach ($this->cart->contents() as $items): ?>
                <tr>
-                  <td class="image"><a href="product.html"><img src="<?php echo load_image('uploads/gambar_produk/' . $items['gambar'],300,300,1,0)?>" alt="" title="" width="130" height="130"></a></td>
+                  <td class="image"><a href="<?php echo $items['link_produk'] ?>"><img src="<?php echo load_image('uploads/gambar_produk/' . $items['gambar'],300,300,1,0)?>" alt="" title="" width="130" height="130"></a></td>
                   <td class="name">
                      <a href="<?php echo $items['link_produk'] ?>"><?php echo $items['name'] ?></a>
                      <div> </div>

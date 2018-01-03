@@ -10,7 +10,7 @@
           <!-- <li><a href="wishlist.html">Wish List</a></li> -->
           <li><a href="<?php echo site_url('member/riwayat-pembelian')?>">Riwayat Pembelian</a></li>
           <!-- <li><a href="#">Downloads</a></li> -->
-          <li><a href="<?php echo site_url('member/riwayat-pengembalian')?>">Riwayat Pengembalian</a></li>
+          <!-- <li><a href="<?php echo site_url('member/riwayat-pengembalian')?>">Riwayat Pengembalian</a></li> -->
           <!-- <li><a href="#">Transactions</a></li> -->
           <!-- <li><a href="#">Newsletter</a></li> -->
           <li class="last-item"><a href="<?php echo site_url('signout')?>">Logout</a></li>

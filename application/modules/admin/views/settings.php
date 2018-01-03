@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">MENU</h3>
+    <h3 class="panel-title">SETTINGS</h3>
   </div>
   <div class="panel-body">
     <div class="col-lg-2" style="text-align: center;">
@@ -10,9 +10,9 @@
       </a>
     </div>
     <div class="col-lg-2" style="text-align: center;">
-      <a href="<?php echo site_url('admin/settings')?>" class="thumbnail">
+      <a href="<?php echo site_url('admin/web-konfigurasi')?>" class="thumbnail">
         <i class="fa fa-wrench" style="font-size: 80px; margin: 10px 0"></i><br>
-        <h4 class="">Setting</h4>
+        <h4 class="">Web Konfigurasi</h4>
       </a>
     </div>
     <div class="col-lg-2" style="text-align: center;">
@@ -27,26 +27,5 @@
         <h4 class="">Blog</h4>
       </a>
     </div>
-    <!-- <div class="col-lg-2" style="text-align: center;">
-      <a href="<?php echo site_url('cabang/paket-status/103')?>" class="thumbnail"  style="color:#f0ad4e">
-        <i class="fa fa-mail-forward" style="font-size: 80px; margin: 10px 0"></i><br>
-        <h4 class="">Paket Keluar</h4>
-      </a>
-    </div>
-    <div class="col-lg-2" style="text-align: center;">
-      <a href="<?php echo site_url('cabang/paket-status/105')?>" class="thumbnail"  style="color:rgb(45, 191, 21)">
-        <i class="fa fa-check-square" style="font-size: 80px; margin: 10px 0"></i><br>
-        <h4 class="">Sudah diterima</h4>
-      </a>
-    </div>
-    <div class="col-lg-2" style="text-align: center;">
-      <a href="<?php echo site_url('cabang/paket-bermasalah')?>" class="thumbnail" style="color:rgb(235, 23, 23);">
-        <i class="fa fa-exclamation-triangle" style="font-size: 80px; margin: 10px 0"></i><br>
-        <h4 class="">Paket bermasalah</h4>
-      </a>
-    </div> -->
-
-
-
   </div>
 </div>

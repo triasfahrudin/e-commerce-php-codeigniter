@@ -9,10 +9,10 @@
           <li><a href="<?php echo site_url('member/ubah-informasi-akun')?>">Ubah informasi akun</a></li>
           <li><a href="<?php echo site_url('member/ubah-password')?>">Ubah Password</a></li>
           <li><a href="<?php echo site_url('member/buku-alamat-pengiriman')?>">Ubah atau tambah alamat pengiriman anda</a></li>
-          <!-- <li><a href="wishlist.html">Modify your wish list</a></li> -->
+          <li><a href="<?php echo site_url('member/riwayat-pembelian')?>">Lihat riwayat pembelian</a></li>
         </ul>
       </div>
-      <h2>Riwayat Pembelianku</h2>
+      <!-- <h2>Riwayat Pembelianku</h2>
       <div class="content">
         <ul class="greenrect">
           <li><a href="<?php echo site_url('member/status-order/belumbayar')?>">Belum Bayar</a></li>
@@ -22,7 +22,7 @@
           <li><a href="<?php echo site_url('member/status-order/batal')?>">Batal</a></li>
           <li><a href="<?php echo site_url('member/status-order/pengembalian')?>">Pengembalian</a></li>
         </ul>
-      </div>
+      </div> -->
       <!-- <h2>Newsletter</h2>
       <div class="content">
         <ul class="greenrect">

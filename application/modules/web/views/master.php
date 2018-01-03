@@ -4,38 +4,10 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Things For Cuties - A Premium Responsive Kids / Baby Related Shop Template</title>
+      <title>Erma Clodi - Things For Cuties</title>
       <meta name="description" content="Things For Cuties - A Premium Responsive Kids / Baby Related Shop Template, available at Themeforest.">
-      <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700">
-      <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Gochi+Hand">
-      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/stylesheet.css')  . '?v=' . uniqid('css.',true);?>">
-      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/mobile.css') . '?v=' . uniqid('css.',true)?>">
-      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/cloud-zoom.css') . '?v=' . uniqid('css.',true)?>">
-      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/carousel.css') . '?v=' . uniqid('css.',true)?>">
-      <!-- <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script> -->
-      <script type="text/javascript">
-         var base_url = "<?php echo site_url('web')?>";         
-      </script>
-      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-      <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery.jcarousel.min.js'). '?v=' . uniqid('js.',true);?>"></script>
-      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jcarousel/0.3.0/jquery.jcarousel.min.js"></script> -->
-      <!-- <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery.cycle.all.js'). '?v=' . uniqid('js.',true);?>"></script> -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle/2.9999.8/jquery.cycle.all.min.js"></script>
-      <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery.selectBox.js'). '?v=' . uniqid('js.',true);?>"></script>
-      <script type="text/JavaScript" src="<?php echo site_url('assets/web/js/cloud-zoom.1.0.2.js'). '?v=' . uniqid('js.',true);?>"></script>
-      <script type="text/JavaScript" src="<?php echo site_url('assets/web/js/cuties.js') . '?v=' . uniqid('js.',true);?>"></script>
-      <script src="https://cdn.rawgit.com/johnboker/jquery.blink/944ae640/jquery.blink.js"></script>
-
-      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/colorbox.css');?>">
-      <!-- <script type="text/JavaScript" src="<?php echo site_url('assets/web/js/jquery.colorbox-min.js');?>"></script> -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.30/jquery.colorbox.js"></script>
-      <script src="https://fastcdn.org/Readmore.js/2.1.0/readmore.min.js"></script>
-
-
-      <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <![endif]-->
       <style>
+
          .sub_menu ul li{
            list-style-type: none;  text-transform: uppercase;
            font-size: 18px; letter-spacing: 1px;
@@ -75,11 +47,46 @@
          }
 
       </style>
+      <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700">
+      <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Gochi+Hand">
+      <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/theme-default.min.css" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/stylesheet.css')  . '?v=' . uniqid('css.',true);?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/mobile.css') . '?v=' . uniqid('css.',true)?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/cloud-zoom.css') . '?v=' . uniqid('css.',true)?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/carousel.css') . '?v=' . uniqid('css.',true)?>">
+      <!-- <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script> -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-bounce.min.css" />
+
+      <script type="text/javascript">
+         var base_url = "<?php echo site_url('web')?>";         
+      </script>
+
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery.jcarousel.min.js'). '?v=' . uniqid('js.',true);?>"></script>
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jcarousel/0.3.0/jquery.jcarousel.min.js"></script> -->
+      <!-- <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery.cycle.all.js'). '?v=' . uniqid('js.',true);?>"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle/2.9999.8/jquery.cycle.all.min.js"></script>
+      <script type="text/javascript" src="<?php echo site_url('assets/web/js/jquery.selectBox.js'). '?v=' . uniqid('js.',true);?>"></script>
+      <script type="text/JavaScript" src="<?php echo site_url('assets/web/js/cloud-zoom.1.0.2.js'). '?v=' . uniqid('js.',true);?>"></script>
+      <script type="text/JavaScript" src="<?php echo site_url('assets/web/js/cuties.js') . '?v=' . uniqid('js.',true);?>"></script>
+      <script src="https://cdn.rawgit.com/johnboker/jquery.blink/944ae640/jquery.blink.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/web/css/colorbox.css');?>">
+      <!-- <script type="text/JavaScript" src="<?php echo site_url('assets/web/js/jquery.colorbox-min.js');?>"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.30/jquery.colorbox.js"></script>
+      <script src="https://fastcdn.org/Readmore.js/2.1.0/readmore.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+            <script src="https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&render=explicit&hl=id" async defer></script>
+      <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
    </head>
    <body>
       <div id="container">
          <div id="header">
-            <div id="logo"><a href="<?php echo site_url()?>"><img src="<?php echo site_url('assets/web/image/logo.png');?>" title="Things for Cuties" alt="Things for Cuties"></a></div>
+            <div id="logo"><a href="<?php echo site_url()?>"><img src="<?php echo site_url('assets/web/image/logo.png?v=' . uniqid());?>" title="Things for Cuties" alt="Things for Cuties"></a></div>
             <div id="header_right">
                <form action="index.html" method="post" enctype="multipart/form-data">
                   <div id="language">
@@ -150,7 +157,12 @@
                            </tbody>
                         </table>
                      </div>
-                     <div class="checkout"><a class="button mr" href="<?php echo site_url('keranjang-belanja')?>">Lihat keranjang</a><a class="button" href="<?php echo site_url('konfirmasi-pemesanan')?>">Konfirmasi Pemesanan</a></div>
+                     <div class="checkout">
+                      <a class="button mr" href="<?php echo site_url('keranjang-belanja')?>">Lihat keranjang</a>
+                      <?php if($this->cart->total_items() > 0){ ?>  
+                      <a class="button" href="<?php echo site_url('konfirmasi-pemesanan')?>">Konfirmasi Pemesanan</a>
+                      <?php } ?>
+                    </div>
                      <?php } ?>
                   </div>
 
@@ -166,7 +178,9 @@
                      <a href="<?php echo site_url('member')?>">Akun ku</a>
                      <?php } ?>
                      <a href="<?php echo site_url('keranjang-belanja');?>">Keranjang</a>
+                     <?php if($this->cart->total_items() > 0){ ?>  
                      <a href="<?php echo site_url('konfirmasi-pemesanan')?>">Konfirmasi Pemesanan</a>
+                     <?php } ?>
                   </div>                  
                </div>
             </div>
@@ -193,80 +207,7 @@
 
                 </li>
               <?php $i++;} ?>
-               <!-- <li class="menu_item down">
-                  <a href="category.html">Clothes For Girls</a>
-                  <div class="sub_menu" style="">
-                     <div class="bubble"></div>
-                     <div class="sub_menu_block" style="width:326px">
-                        <ul>
-                           <li><a href="category.html">Retrorsum</a></li>
-                           <li><a href="category.html">Suos</a></li>
-                           <li><a href="category.html">Eam</a></li>
-                           <li><a href="category.html">Famulus</a></li>
-                           <li><a href="category.html">Participat</a></li>
-                           <li><a href="category.html">Indulgentia</a></li>
-                           <li><a href="category.html">Dianae</a></li>
-                           <li><a href="category.html">Scitote</a></li>
-                           <li><a href="category.html">Nunc</a></li>
-                           <li><a href="category.html">Lugens</a></li>
-                        </ul>
-                        <ul>
-                           <li><a href="category.html">Retrorsum</a></li>
-                           <li><a href="category.html">Suos</a></li>
-                           <li><a href="category.html">Eam</a></li>
-                           <li><a href="category.html">Famulus</a></li>
-                           <li><a href="category.html">Participat</a></li>
-                           <li><a href="category.html">Indulgentia</a></li>
-                           <li><a href="category.html">Dianae</a></li>
-                           <li><a href="category.html">Scitote</a></li>
-                           <li><a href="category.html">Nunc</a></li>
-                           <li><a href="category.html">Lugens</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </li>
-               <li class="menu_item down"><a href="category.html">Clothes For Boys</a> </li>
-               <li class="menu_item down">
-                  <a href="category.html">Toys</a>
-                  <div class="sub_menu" style="">
-                     <div class="bubble"></div>
-                     <div class="sub_menu_block" style="width:163px">
-                        <ul>
-                           <li><a href="category.html">Participat</a></li>
-                           <li><a href="category.html">Scitote</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </li>
-               <li class="menu_item down">
-                  <a href="category.html">Safety</a>
-                  <div class="sub_menu" style="">
-                     <div class="bubble"></div>
-                     <div class="sub_menu_block" style="width:163px">
-                        <ul>
-                           <li><a href="category.html">Scitote</a></li>
-                           <li><a href="category.html">Participat</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </li>
-               <li class="menu_item down">
-                  <a href="category.html">Furniture</a>
-                  <div class="sub_menu" style="">
-                     <div class="bubble"></div>
-                     <div class="sub_menu_block" style="width:163px">
-                        <ul>
-                           <li><a href="category.html">Participat</a></li>
-                           <li><a href="category.html">Scitote</a></li>
-                           <li><a href="category.html">Scitote</a></li>
-                           <li><a href="category.html">WScitote</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </li>
-               <li class="menu_item down"><a href="category.html">Prams</a> </li>
-               <li class="menu_item down"><a href="category.html">At Home</a> </li> -->
-               <!-- <li class="last_item menu_item down"><a href="category.html">Child Seats</a> </li> -->
+               
             </ul>
          </div>
          <div id="mobile-menu">
@@ -281,80 +222,27 @@
          <?php include $page . ".php";?>
       </div>
       <div id="footer">
-         <div id="footer_top">
-            <div class="footer_wrapper">
-               <div id="footer_top_content">
-                  <div id="footer_top_item">
-                     <div class="footer_top_item" id="about_us">
-                        <h3 class="title_item_1 down"><a href="about.html">About us</a></h3>
-                        <p class="text_item content_item_1 about"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean interdum tellus ac velit faucibus feugiat. Donec dignissim, eros elementum porttitor tempor, massa ligula cursus libero, vel ullamcorper dui ipsum id magna. Pellentesque adipiscing euismod mauris id pharetra. </p>
-                        <p class="text_item content_item_1 about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean interdum tellus ac velit faucibus feugiat. Donec dignissim, eros elementum porttitor tempor, massa ligula cursus libero, vel ullamcorper dui ipsum id magna.</p>
-                     </div>
-                     <div class="footer_top_item" id="contact_us">
-                        <h3 class="title_item_2 down"><a href="contact.html">Contact us</a></h3>
-                        <div class="text_item">
-                           <p class="info_contact"> <span>Things for Cuties<br>
-                              John Doodely Doe
-                              <br>
-                              only the best childish products
-                              <br>
-                              John Doe Street 123<br>
-                              1112345 Berlin<br>
-                              Germany
-                              </span>
-                           </p>
-                           <p class="online_contact"> <span class="phone">012 - 34 456 778</span> <span class="phone">012 - 345 67 89</span> <span class="fax">012 - 345 67 890</span> <span class="mail"><a class="color" href="mailto:contact@thingsforcuties.doe" title="Mail">contact@thingsforcuties.doe</a></span> </p>
-                        </div>
-                     </div>
-                     <!-- <div class="footer_top_item " id="twitter_news">
-                        <h3 class="title_item_3 down" ><a href="http://www.twitter.com/Mouseevent">Twitter Feed</a></h3>
-                        <div class="text_item content_item_3">
-                           <div id="twitter_update_list">
-                              <a class="twitter-timeline"  width="232" height="250" data-chrome="nofooter noheader transparent noscrollbar" data-tweet-limit="2" href="https://twitter.com/Mouseevent"  data-widget-id="346591733494202368"></a>
-                              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                           </div>
-                        </div>
-                     </div> -->
-                     <!-- <div class="footer_top_item last_footer_item" id="facebook">
-                        <h3 class="title_item_4 down"><a href="https://www.facebook.com/mouseevent.berlin.brandenburg">Facebook</a></h3>
-                        <div class="text_item content_item_4">
-                           <div id="fb-root"></div>
-                           <script>(function(d, s, id) {
-                              var js, fjs = d.getElementsByTagName(s)[0];
-                              if (d.getElementById(id)) return;
-                              js = d.createElement(s); js.id = id;
-                              js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1&appId=371189259657718";
-                              fjs.parentNode.insertBefore(js, fjs);
-                              }(document, 'script', 'facebook-jssdk'));
-                           </script>
-                           <div class="fb-like-box" data-href="https://www.facebook.com/mouseevent.berlin.brandenburg" data-width="220" data-height="250" data-show-faces="true" data-stream="false" data-show-border="false" data-header="false"></div>
-                        </div>
-                     </div> -->
-                     <div class="clear"></div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="footer_wrapper">
+         
+          <div class="footer_wrapper">
             <div id="footer_bottom">
                <div class="footer_bottom_item">
-                  <h3 class="bottom_item_1 down"><a>Information</a></h3>
+                  <h3 class="bottom_item_1 down"><a>Informasi</a></h3>
                   <ul class="menu_footer_item text_item">
-                     <li><a href="<?php echo site_url('web/tentang-kami')?>" title="About Us">Tentang Kami</a></li>
+                     <li><a href="<?php echo site_url('tentang-kami')?>" title="About Us">Tentang Kami</a></li>
                      <li><a href="<?php echo site_url('web/blog')?>" title="Blog">Blog</a></li>
-                     <li><a href="comparison.html" title="Privacy Policy">Compare List</a></li>
-                     <li><a href="#" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+                     <!-- <li><a href="comparison.html" title="Privacy Policy">Compare List</a></li>
+                     <li><a href="#" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li> -->
                   </ul>
                </div>
                <div class="footer_bottom_item">
-                  <h3 class="bottom_item_2 down"><a>Customer Service</a></h3>
+                  <h3 class="bottom_item_2 down"><a>Layanan Konsumen</a></h3>
                   <ul class="menu_footer_item text_item">
-                     <li><a href="contact.html">Contact Us</a></li>
-                     <li><a href="#">Returns</a></li>
+                     <li><a href="<?php echo site_url('hubungi-kami')?>">Hubungi kami</a></li>
+                     <!-- <li><a href="#">Returns</a></li> -->
                      <li><a href="#">Site Map</a></li>
                   </ul>
                </div>
-               <div class="footer_bottom_item">
+              <!--  <div class="footer_bottom_item">
                   <h3 class="bottom_item_3 down"><a>Extras</a></h3>
                   <ul class="menu_footer_item text_item">
                      <li><a href="brands.html">Brands</a></li>
@@ -362,14 +250,14 @@
                      <li><a href="#">Affiliates</a></li>
                      <li><a href="specials.html">Specials</a></li>
                   </ul>
-               </div>
+               </div> -->
                <div class="footer_bottom_item">
-                  <h3 class="bottom_item_4 down"><a>My Account</a></h3>
+                  <h3 class="bottom_item_4 down"><a>Akun Ku</a></h3>
                   <ul class="menu_footer_item text_item">
-                     <li><a href="myaccount.html">My Account</a></li>
-                     <li><a href="orderhistory.html">Order History</a></li>
-                     <li><a href="wishlist.html">Wish List</a></li>
-                     <li><a href="#">Newsletter</a></li>
+                     <li><a href="<?php echo site_url('member')?>">Akun ku</a></li>
+                     <li><a href="<?php echo site_url('member/riwayat-pembelian')?>">Riwayat Pembelian</a></li>
+                     <!-- <li><a href="wishlist.html">Wish List</a></li>
+                     <li><a href="#">Newsletter</a></li> -->
                   </ul>
                </div>
                <div class="clear"></div>
@@ -389,7 +277,7 @@
                   <div class="mobile-footer-nav" style="display: none;">
                      <ul>
                         <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="#">Returns</a></li>
+                        <!-- <li><a href="#">Returns</a></li> -->
                         <li><a href="#">Site Map</a></li>
                      </ul>
                   </div>
@@ -405,17 +293,17 @@
                   <h3>My Account</h3>
                   <div class="mobile-footer-nav" style="display: none;">
                      <ul>
-                        <li><a href="myaccount.html">My Account</a></li>
-                        <li><a href="orderhistory.html">Order History</a></li>
-                        <li><a href="wishlist.html">Wish List</a></li>
-                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="<?php echo site_url('member')?>">Akun ku</a></li>
+                        <li><a href="<?php echo site_url('member/riwayat-pembelian')?>">Riwayat Pembelian</a></li>
+                        <!-- <li><a href="wishlist.html">Wish List</a></li>
+                        <li><a href="#">Newsletter</a></li> -->
                      </ul>
                   </div>
                </div>
             </div>
          </div>
          <div id="footer-text">
-            <p>Things for Cuties © 2013 - Template by <a href="http://themeforest.net/user/ssievert?ref=ssievert">ssievert</a></p>
+            <!-- <p>Things for Cuties © 2013 - Template by <a href="http://themeforest.net/user/ssievert?ref=ssievert">ssievert</a></p> -->
          </div>
       </div>
       

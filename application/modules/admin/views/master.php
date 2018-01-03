@@ -112,6 +112,7 @@
                            <li class="active"><a href="<?php echo site_url('admin/index')?>"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
                            <li><a href="<?php echo site_url('admin/kategori')?>"><span class="glyphicon glyphicon-list-alt"></span> Kategori</a></li>
                            <li><a href="<?php echo site_url('admin/produk')?>"><span class="glyphicon glyphicon-list-alt"></span> Produk</a></li>
+                           <li><a href="<?php echo site_url('admin/kotak-kado')?>"><span class="glyphicon glyphicon-list-alt"></span> Kotak Kado</a></li>
                            <li><a href="<?php echo site_url('admin/member')?>"><span class="glyphicon glyphicon-list-alt"></span> Member</a></li>
                            <li><a href="<?php echo site_url('admin/penjualan')?>"><span class="glyphicon glyphicon-list-alt"></span> Penjualan</a></li>
                            <li><a href="<?php echo site_url('admin/stok-opname')?>"><span class="glyphicon glyphicon-list-alt"></span> Stok Opname</a></li>

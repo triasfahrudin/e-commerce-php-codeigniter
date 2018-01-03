@@ -39,7 +39,7 @@
                <p class="wrap_price"> <!-- <span class="price-old"><?php echo format_rupiah($terbaru['harga_lama'])?></span> --> <span class="price-new"><?php echo format_rupiah($terbaru['harga'])?></span> </p>
                <?php } ?>   
                <p class="submit">
-                <input type="button" value="Add to Cart" class="button" onclick="addtocart(<?php echo $terbaru['id']?>)">
+                <input type="button" value="Beli" class="button" onclick="addtocart(<?php echo $terbaru['id']?>)">
                </p>
             </div>
             <?php }?>
@@ -66,7 +66,7 @@
                <p class="wrap_price"> <!-- <span class="price-old"><?php echo format_rupiah($diskon['harga_lama'])?></span> --> <span class="price-new"><?php echo format_rupiah($diskon['harga'])?></span> </p>
                <?php } ?>   
                <p class="submit">
-                  <input type="button" value="Add to Cart" class="button" onclick="addtocart(<?php echo $diskon['id']?>)">
+                  <input type="button" value="Beli" class="button" onclick="addtocart(<?php echo $diskon['id']?>)">
                </p>
             </div>
             <?php }?>
@@ -93,7 +93,7 @@
                <p class="wrap_price"> <!-- <span class="price-old"><?php echo format_rupiah($pilihan['harga_lama'])?></span> --> <span class="price-new"><?php echo format_rupiah($pilihan['harga'])?></span> </p>
                <?php } ?>   
                <p class="submit">
-                  <input type="button" value="Add to Cart" class="button" onclick="addtocart(<?php echo $pilihan['id']?>)">
+                  <input type="button" value="Beli" class="button" onclick="addtocart(<?php echo $pilihan['id']?>)">
                </p>
             </div>
             <?php }?>

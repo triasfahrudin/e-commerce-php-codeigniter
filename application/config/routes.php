@@ -59,9 +59,13 @@ $route['brands/(:any)'] = 'web/brands/$1';
 $route['keranjang-belanja'] = 'web/keranjang-belanja';
 
 $route['login'] = 'web/login';
+$route['login/(:any)'] = 'web/login/$1';
 $route['buat-akun'] = 'web/buat-akun';
 $route['lupa-password'] = 'web/lupa-password';
-
+$route['konfirmasi-pemesanan'] = 'web/konfirmasi-pemesanan';
+$route['tentang-kami'] = 'web/tentang-kami';
+$route['baca-blog/(:any)']  = 'web/baca-blog/$1';
+$route['hubungi-kami'] = 'web/hubungi-kami';
 // $route['akunku'] = 'web/'
 
 

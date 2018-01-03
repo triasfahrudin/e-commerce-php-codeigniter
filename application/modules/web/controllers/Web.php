@@ -25,7 +25,7 @@ class Web extends CI_Controller
         $data['produk_pilihan'] = $this->produk_pilihan(4);
         $data['produk_diskon']  = $this->produk_diskon(4);
         $data['menus']          = $this->db->get_where('kategori', array('parent' => 0));
-       
+
         $this->load->view('master.php', $data);
     }
 
@@ -52,7 +52,7 @@ class Web extends CI_Controller
     public function addtocart()
     {
         $product_id = $this->input->post('product_id');
-        $prod     = $this->db->get_where('produk', array('id' => $product_id))->row_array();
+        $prod       = $this->db->get_where('produk', array('id' => $product_id))->row_array();
         /*
         <form method="post" action="">
         <input type="hidden" name="id" value="<?php echo $produk['id']?>">
@@ -377,7 +377,7 @@ class Web extends CI_Controller
     {
 
         // $user_ip = getUserIP();
-        $slug = $this->uri->segment(3, 'no-slug');
+        $slug = $this->uri->segment(2, 'no-slug');
 
         if ($slug === 'no-slug') {
             redirect(site_url(), 'reload');
@@ -564,14 +564,28 @@ class Web extends CI_Controller
         redirect(site_url($redirect), 'reload');
     }
 
-    public function updatecart(){
+    public function updatecart()
+    {
 
         $data = array(
-                'rowid' => $this->input->post('rowid'),
-                'qty'   => $this->input->post('qty')
+            'rowid' => $this->input->post('rowid'),
+            'qty'   => $this->input->post('qty'),
         );
 
         $this->cart->update($data);
+
+        //update rekap pembelian
+        /*
+    $data = array(
+    'kurir'   => $this->input->post('kurir'),
+    'layanan' => $this->input->post('layanan'),
+    'tarif'   => $this->input->post('tarif'),
+    'etd'     => $this->input->post('etd'),
+    );
+
+    $this->session->set_userdata('konfirmasi_pengiriman', $data);
+
+     */
 
     }
 
@@ -579,18 +593,18 @@ class Web extends CI_Controller
     {
         $data = array(
             'berat_total' => $this->berat_total(),
-            'page' => 'keranjang_belanja',
+            'page'        => 'keranjang_belanja',
         );
         $this->_page_output($data);
     }
 
+    private function berat_total()
+    {
 
-    private function berat_total(){
-        
-        $btotal = 0;    
+        $btotal = 0;
         foreach ($this->cart->contents() as $items):
-            $btotal += ($items['berat'] * $items['qty']); 
-        endforeach;    
+            $btotal += ($items['berat'] * $items['qty']);
+        endforeach;
 
         return $btotal;
     }
@@ -625,7 +639,7 @@ class Web extends CI_Controller
                 'name'        => $name,
                 'gambar'      => $this->produk_detail($id, 'gambar'),
                 'link_produk' => site_url($this->produk_detail($id, 'kategori_slug') . '/' . $this->produk_detail($id, 'slug')),
-                'berat'       => $berat  
+                'berat'       => $berat,
             );
 
             $this->cart->insert($data);
@@ -722,6 +736,10 @@ class Web extends CI_Controller
             } else {
                 $this->db->select('id');
                 $kat_id = $this->db->get_where("kategori", array('parent' => $kat['id']));
+
+                if ($kat_id->num_rows() == 0) {
+                    redirect(site_url(), 'reload');
+                }
 
                 $this->db->where_in('kategori_id', $this->flatten($kat_id->result_array()));
                 $total_rows = $this->db->get('produk')->num_rows();
@@ -831,10 +849,18 @@ class Web extends CI_Controller
                             'user_id'          => $member['id'],
                             'user_email'       => $member['email'],
                             'user_namalengkap' => $member['nama_lengkap'],
+                            'user_level'       => 'member'
                         )
                     );
 
-                    redirect(site_url('member'));
+                    if ($this->uri->segment(2, 'no-redirect') === 'no-redirect') {
+                        redirect(site_url('member'), 'reload');
+                    } else {
+                        if ($this->uri->segment(2) === 'redirect-konfirmasi-pemesanan') {
+                            redirect(site_url('member/konfirmasi_pemesanan'), 'reload');
+                        }
+                    }
+
                 }
 
             }
@@ -984,6 +1010,15 @@ class Web extends CI_Controller
         $this->_page_output($data);
     }
 
+    public function konfirmasi_pemesanan()
+    {
+        if (!$this->session->userdata('user_id')) {
+            redirect(site_url('login/redirect-konfirmasi-pemesanan'), 'reload');
+        } else {
+            redirect(site_url('member/konfirmasi-pemesanan'), 'reload');
+        }
+    }
+
     // public function produk(){
     //   $slug = $this->uri->segment(2);
     //   $data = array(
@@ -993,4 +1028,38 @@ class Web extends CI_Controller
     //
     //   $this->_page_output($data);
     // }
+
+    public function tentang_kami()
+    {
+        $data = array(
+            'page' => 'tentang_kami',
+        );
+
+        $this->_page_output($data);
+    }
+
+    public function hubungi_kami()
+    {
+        $data = array(
+            'page' => 'hubungi_kami',
+        );
+
+        if (!empty($_POST)) {
+            if (!empty($_POST)) {
+                $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required');
+                $this->form_validation->set_rules('email', 'Alamat Email', 'trim|required|valid_email');
+                $this->form_validation->set_rules('pesan', 'Pesan', 'trim|required');
+
+                if ($this->form_validation->run() == true) {
+
+                    echo js_alert('Pesan anda telah terkirim', site_url('web'));
+                }
+
+            }
+
+            
+        }
+
+        $this->_page_output($data);
+    }
 }

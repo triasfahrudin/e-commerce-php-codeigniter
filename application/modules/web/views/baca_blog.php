@@ -42,8 +42,8 @@
         <h1 class="title_module"><span>Artikel Populer</span></h1>
         <div class="box-content popular">
           <?php foreach ($populer_blog->result_array() as $pop_blog) { ?>
-          <div class="box-product"> <a class="image" href="<?php echo site_url('web/baca-blog/' . $pop_blog['slug'])?>" title="View more"> <img src="<?php echo load_image('uploads/blogs/' . $pop_blog['gambar'],55,47,0,1)?>" alt=""> </a>
-            <h3 class="name"><a href="<?php echo site_url('web/baca-blog/' . $pop_blog['slug'])?>" title=""><?php echo limit_text($pop_blog['judul'],20)?></a></h3>
+          <div class="box-product"> <a class="image" href="<?php echo site_url('baca-blog/' . $pop_blog['slug'])?>" title="View more"> <img src="<?php echo load_image('uploads/blogs/' . $pop_blog['gambar'],55,47,0,1)?>" alt=""> </a>
+            <h3 class="name"><a href="<?php echo site_url('baca-blog/' . $pop_blog['slug'])?>" title=""><?php echo limit_text($pop_blog['judul'],20)?></a></h3>
             <p class="wrap_price"> <span><?php echo tgl_panjang($pop_blog['dibuat'])?></span> </p>
           </div>
           <?php } ?>          

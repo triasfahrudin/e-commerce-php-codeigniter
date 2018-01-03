@@ -46,29 +46,56 @@ if ($err) {
 <?php
  for ($k=0; $k < count($data['rajaongkir']['results']); $k++) {
 ?>
-	 <div title="<?php echo strtoupper($data['rajaongkir']['results'][$k]['name']);?>" style="padding:10px">
-		 <table class="table table-striped">
-			 <tr>
-				 <th>No.</th>
-				 <th>Jenis Layanan</th>
-				 <th>ETD</th>
-				 <th>Tarif</th>
-			 </tr>
-			 <?php
-			 for ($l=0; $l < count($data['rajaongkir']['results'][$k]['costs']); $l++) {			 
+	 <div title="<?php echo strtoupper($data['rajaongkir']['results'][$k]['name']);?>" style="padding:10px" class="cart-info">
+		 <table>
+			 <thead>
+				 <tr>
+					 <td>No.</td>
+					 <td>Jenis Layanan</td>
+					 <td>Perkiraan Sampai</td>
+					 <td>Tarif</td>
+					 <td>Pilih</td>
+				 </tr>
+			 </thead>
+			 <tbody>
+			 <?php for ($l=0; $l < count($data['rajaongkir']['results'][$k]['costs']); $l++) { 
+			 	$etd = $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['etd'];
+			 	$tarif = $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value'];
+			 	$service = $data['rajaongkir']['results'][$k]['costs'][$l]['service'];
 			 ?>
 			 <tr>
 				 <td><?php echo $l+1;?></td>
 				 <td>
-					 <div style="font:bold 16px Arial"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?></div>
+					 <div style="font:bold 16px Arial"><?php echo $service; ?></div>
 					 <div style="font:normal 11px Arial"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['description'];?></div>
 				 </td>
-				 <td align="center">&nbsp;<?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['etd'];?> days</td>
-				 <td align="right"><?php echo number_format($data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']);?></td>
+				 <td>
+				 	<div style="font:bold 16px Arial">
+				 		<?php echo $etd ;?>
+				 	</div>	
+				 </td>
+				 <td>
+				 	<div style="font:bold 16px Arial">
+				 		<?php echo number_format($tarif);?>
+				 	</div>	
+				 </td>
+				 <td>
+				 	<!-- <div class="buttons">  -->
+                     <!-- <input type="checkbox" name="agree" value="1" required=""> -->
+                     <form method="POST" action="">
+                     	<input type="hidden" name="kurir" value="<?php echo $courier;?>">
+                     	<input type="hidden" name="layanan" value="<?php echo $service;?>">
+                     	<input type="hidden" name="tarif" value="<?php echo $tarif;?>">
+                     	<input type="hidden" name="etd" value="<?php echo $etd;?>">
+                     	<input type="submit" value="Pilih" id="button-register" class="button">	
+                     </form>
+                     
+                  <!-- </div> -->
+				 </td>
 			 </tr>
-			 <?php
-			 }
-			 ?>
+			 <?php } ?>	
+			 </tbody>
+			 
 		 </table>
 	 </div>
  <?php

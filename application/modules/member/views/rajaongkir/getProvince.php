@@ -28,9 +28,9 @@ if ($err) {
   $data = json_decode($response, true);
   //echo json_encode($k['rajaongkir']['results']);
 
-  
+  // echo "<option>Pilih Kabupaten/kota</option>";  
   for ($i=0; $i < count($data['rajaongkir']['results']); $i++){
-  
+    
     if($data['rajaongkir']['results'][$i]['province_id'] == $provinsi){
       echo "<option selected value='".$data['rajaongkir']['results'][$i]['province_id']."'>".$data['rajaongkir']['results'][$i]['province']."</option>";
     }else{

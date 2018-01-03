@@ -33,7 +33,17 @@
                foreach ($transaksi->result_array() as $trans) { ?>
                 <tr>
                   <td class="name"><?php echo $trans['tgl_pemesanan']?></td>
-                  <td class="model"><?php echo $trans['status']?></td>
+                  <td class="model">
+                    <?php 
+                    if($trans['status'] === 'belum-bayar' && $trans['bukti_bayar'] !== ""){ 
+                      echo "Menunggu validasi";
+                    }else{ 
+                      echo $trans['status'];
+                    } 
+                    ?>  
+
+                      
+                  </td>
                   <td>
                     <?php if($trans['status'] === 'belum-bayar'){ ?>
                      <form action="<?php echo site_url('member/upload-bukti/' . $trans['id'])?>" method="POST" enctype="multipart/form-data">
@@ -46,7 +56,7 @@
                       <?php echo $trans['tgl_konfirmasi_bayar']?>
                     <?php } ?>  
                   </td>
-                  <td><a href="<?php echo site_url('member/detail-transaksi/' . $trans['id'])?>">Lihat</a></td>
+                  <td><a href="<?php echo site_url('member/detail-transaksi/' . base64url_encode(generate_uuid() . '|' . $trans['id'] . '|' . generate_uuid()))?>">Lihat</a></td>
                 </tr>
                <?php } 
                  } ?>
@@ -56,4 +66,5 @@
           <!-- <a class="button" href="<?php echo site_url('member/tambah-alamat-pengiriman');?>">Tambah Alamat Pengiriman</a> -->
         </div>
       </div>
+</div>
 </div>

@@ -32,9 +32,9 @@
     <div class="breadcrumb"> <a href="<?php echo site_url('member')?>">Beranda</a> » <a href="<?php echo site_url('member/buku-alamat-pengiriman')?>">Buku alamat pengiriman</a> » <a href="#">Tambah Alamat</a> </div>
     <h1><span class="h1-top">Buku Alamat Pengiriman</span></h1>
     <div class="information_content">
-      <form action="" method="post">
+      <form action="" method="post" id=form_alamat>
         <h2>Detail Alamat</h2>
-        <div class="content">
+        <div class="content" id="content_form">
           <table class="form">
             <tbody>
               <tr>
@@ -56,13 +56,13 @@
               </tr>
               <tr>
                 <td><span class="required">*</span> Kota/Kabupaten:</td>
-                <td>
+                <td  id="div_kab_kota">
                     <select class="form-control" name="kota_kab" id="kota_kab" required="">
                         <option value="" selected="" disabled="">Pilih Kota</option>
                     </select>
                 </td>
               </tr>
-             
+
               <tr>
                 <td><span id="postcode-required" class="required" style="">*</span> Kode Pos:</td>
                 <td><input type="text" name="kodepos" value="<?php echo $kodepos?>" required=""></td>
@@ -81,33 +81,39 @@
               
             </tbody>
           </table>
-        </div>
-        <div class="buttons">
-          <div class="left"><a href="<?php echo site_url('member/buku-alamat-pengiriman')?>" class="button">Kembali</a></div>
-          <div class="right">
-            <input type="submit" value="Simpan" class="button">
+          <div class="buttons">
+            <div class="left"><a href="<?php echo site_url('member/buku-alamat-pengiriman')?>" class="button">Kembali</a></div>
+            <div class="right">
+              <input type="submit" value="Simpan" class="button">
+            </div>
           </div>
         </div>
+        
       </form>
     </div>
   </div> 
 
 <script>
+    
     function load_kota(sel){
         var val = sel.value;
+        $('#content_form').block({ message: '<h1>Processing</h1>', css: { border: '1px solid #a00' }  });
         $.post("<?php echo base_url(); ?>member/getCity/"+ val,function(obj){
              $('#kota_kab').html(obj);
         })
         .done(function( data ){
+           $('#content_form').unblock();
         });
     }
 
     <?php  
     if($uri === 'ubah-alamat-pengiriman'){ ?>
+        $('#content_form').block({ message: '<h1>Processing</h1>', css: { border: '1px solid #a00' }  });
         $.post("<?php echo base_url(); ?>member/getCity/"+ <?php echo $provinsi?>,function(obj){
              $('#kota_kab').html(obj);
         })
         .done(function( data ){
+            $('#content_form').unblock();
             $('#kota_kab').val('<?php echo $kota_kab?>');
         });
     <?php } ?>

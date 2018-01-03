@@ -34,8 +34,13 @@
             <div id="login" class="right">
                <h2>Login dengan akun saya</h2>
                <!-- <p>I am a returning customer</p> -->
+               <?php if($this->uri->segment(2,'no-redirect') === 'no-redirect'){ ?>
                <form action="<?php echo site_url('login')?>" method="post">
+               <?php }else{ ?>
+               <form action="<?php echo site_url('login/' . $this->uri->segment(2))?>" method="post"> 
+               <?php } ?> 
                  <b>E-Mail:</b><br>
+
                  <input type="text" name="email" value="" required="">
                  <br>
                  <br>

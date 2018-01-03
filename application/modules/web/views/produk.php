@@ -45,7 +45,7 @@
                <p class="wrap_price"> <span class="price-old"><?php echo format_rupiah($pilihan['harga_lama'])?></span> <span class="price-new"><?php echo format_rupiah($pilihan['harga'])?></span> </p>
                <?php } ?>  
                <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
+                  <input type="button" value="Beli" class="button">
                </p>
             </div>
             <?php } ?>
@@ -73,7 +73,7 @@
                <p class="wrap_price"> <span class="price-old"><?php echo format_rupiah($diskon['harga_lama'])?></span> <span class="price-new"><?php echo format_rupiah($diskon['harga'])?></span> </p>
                <?php } ?>  
                <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
+                  <input type="button" value="Beli" class="button">
                </p>
             </div>
             <?php } ?>
@@ -101,7 +101,7 @@
                <p class="wrap_price"> <span class="price-old"><?php echo format_rupiah($terbaru['harga_lama'])?></span> <span class="price-new"><?php echo format_rupiah($terbaru['harga'])?></span> </p>
                <?php } ?>  
                <p class="submit">
-                  <input type="button" value="Add to Cart" class="button">
+                  <input type="button" value="Beli" class="button">
                </p>
             </div>
             <?php } ?>
@@ -111,7 +111,7 @@
    <div class="clear"></div>
 </div>
 <div id="content">
-   <div class="breadcrumb"> <a href="index.html">Home</a> » <a href="category.html">Clothes For Girls</a> » <a href="#">Brown Shoes for Boys</a> </div>
+   <div class="breadcrumb"> <a href="<?php echo site_url();?>">Beranda</a> » <a href="category.html">Clothes For Girls</a> » <a href="#">Brown Shoes for Boys</a> </div>
    <h1><span class="h1-top"><?php echo $produk['nama']?></span></h1>
    <div class="product-info">
       <div class="left">
@@ -159,10 +159,12 @@
             </div>
          </div>
          <div class="desc2"> <span>Merk:</span> <a href="<?php echo site_url('brands/' . $produk['merk_slug'])?>"><?php echo $produk['merk']?></a><br>
-            <span>Product Code:</span> 00123<br>
-            <span>Availability:</span> In Stock
+            <span>Kode Produk:</span> <?php echo 'SKU' . str_pad($produk['id'], 8, "0", STR_PAD_LEFT);?> <br>
+            <span>Stok:</span> <?php echo $produk['stok'] == 0 ? 'stok habis' : $produk['stok'];?>
          </div>
+         <?php if($produk['stok'] > 0){ ?>
          <div class="cart">
+            
             <form method="post" action="">
                <input type="hidden" name="id" value="<?php echo $produk['id']?>">
                <input type="hidden" name="price" value="<?php echo $produk['harga']?>">
@@ -171,22 +173,27 @@
                
 
                <div>Qty:
-                  <input type="text" name="qty" size="2" value="1">
+                  <input type="text" name="qty" size="5" style="width:50px" value="1" data-validation="number" data-validation-allowing="range[1;100]">
                   &nbsp;
-                  <input type="submit" value="Add to Cart" id="button-cart" class="button">
-                  <span>&nbsp;&nbsp;- OR -&nbsp;&nbsp;</span> <span class="links"><a>Add to Wish List</a><br>
-                  <a>Add to Compare</a></span>
+                  <input type="submit" value="Beli" id="button-cart" class="button" >
+                  <!-- <span>&nbsp;&nbsp;- OR -&nbsp;&nbsp;</span> <span class="links"><a>Add to Wish List</a><br>
+                  <a>Add to Compare</a></span> -->
                </div>
-            </form>
+            </form>            
          </div>
-         <div class="review">
+         <?php } ?>
+         <!-- <div class="review">
             <div><img src="<?php echo site_url('assets/web/image/stars-4.png');?>" alt="0 reviews"></div>
             <div><a>6 reviews</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a>Write a review</a></div>
             <div class="share"><img src="<?php echo site_url('assets/web/image/share2.png')?>" alt=""></div>
-         </div>
+         </div> -->
       </div>
    </div>
-   <div id="tabs" class="htabs"><a href="#tab-description">Deskripsi</a><a href="#tab-specification">Detail</a><a href="#tab-review">Reviews (6)</a> </div>
+   <div id="tabs" class="htabs">
+    <a href="#tab-description">Deskripsi</a>
+    <a href="#tab-specification">Detail</a>
+    <!-- <a href="#tab-review">Reviews (6)</a>  -->
+  </div>
    <div id="tab-description" class="tab-content">
       <div class="cpt_product_description ">
          <div id="deskripsi">
@@ -201,7 +208,7 @@
          </div>
       </div>
    </div>
-   <div id="tab-review" class="tab-content">
+   <!-- <div id="tab-review" class="tab-content">
       <div id="review">
          <div class="review-list">
             <div class="author"><b>ssievert</b>  on  12/02/2013</div>
@@ -236,7 +243,7 @@
       <div class="buttons">
          <div class="right"><a id="button-review" class="button">Continue</a></div>
       </div>
-   </div>
+   </div> -->
 </div>
 <script type="text/javascript"><!--
    $('#carousel-p ul').jcarousel({
@@ -257,4 +264,52 @@
    });
 
    //-->
+     var myLanguage = {
+        requiredField : 'Input ini dibutuhkan',
+        errorTitle: 'Form submission failed!',
+        requiredFields: 'You have not answered all required fields',
+        badTime: 'You have not given a correct time',
+        badEmail: 'Alamat email tidak valid',
+        badTelephone: 'You have not given a correct phone number',
+        badSecurityAnswer: 'You have not given a correct answer to the security question',
+        badDate: 'You have not given a correct date',
+        lengthBadStart: 'The input value must be between ',
+        lengthBadEnd: ' characters',
+        lengthTooLongStart: 'The input value is longer than ',
+        lengthTooShortStart: 'The input value is shorter than ',
+        notConfirmed: 'Input values could not be confirmed',
+        badDomain: 'Incorrect domain value',
+        badUrl: 'The input value is not a correct URL',
+        badCustomVal: 'The input value is incorrect',
+        andSpaces: ' and spaces ',
+        badInt: 'Stok tidak mencukupi',
+        badSecurityNumber: 'Your social security number was incorrect',
+        badUKVatAnswer: 'Incorrect UK VAT Number',
+        badStrength: 'The password isn\'t strong enough',
+        badNumberOfSelectedOptionsStart: 'You have to choose at least ',
+        badNumberOfSelectedOptionsEnd: ' answers',
+        badAlphaNumeric: 'The input value can only contain alphanumeric characters ',
+        badAlphaNumericExtra: ' and ',
+        wrongFileSize: 'The file you are trying to upload is too large (max %s)',
+        wrongFileType: 'Only files of type %s is allowed',
+        groupCheckedRangeStart: 'Please choose between ',
+        groupCheckedTooFewStart: 'Please choose at least ',
+        groupCheckedTooManyStart: 'Please choose a maximum of ',
+        groupCheckedEnd: ' item(s)',
+        badCreditCard: 'The credit card number is not correct',
+        badCVV: 'The CVV number was not correct',
+        wrongFileDim : 'Incorrect image dimensions,',
+        imageTooTall : 'the image can not be taller than',
+        imageTooWide : 'the image can not be wider than',
+        imageTooSmall : 'the image was too small',
+        min : 'min',
+        max : 'max',
+        imageRatioNotAccepted : 'Image ratio is not accepted'
+  };
+
+  $.validate({
+      language : myLanguage,
+      modules : 'date',
+      borderColorOnError : '#E22929'
+  });
 </script>

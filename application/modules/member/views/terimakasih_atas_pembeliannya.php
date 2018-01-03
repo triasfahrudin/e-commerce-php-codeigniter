@@ -12,18 +12,17 @@
     
 </style>
 <div id="content">
-    <div class="breadcrumb"> <a href="<?php echo site_url();?>">Beranda</a> </div>
-    <h1><span class="h1-top">Terimakasih</span></h1>
+    <div class="breadcrumb"> <a href="index.html">Home</a></div>
+    <h1><span class="h1-top">Terimakasih atas pembeliannya</span></h1>
     <div class="checkout">
       <div id="checkout">
         <!-- <div class="checkout-heading checkout1">Step 1: Checkout Options</div> -->
         <div class="checkout-content" style="display: block;">
           <h3 class="terimakasih">
-          	Terimakasih telah melakukan registrasi. 
-          	<br>Detail akun anda telah kami kirimkan ke alamat email anda.
-          	<br>Anda dapat mengganti password akun anda di menu akunku setelah melakukan login
-            <br>Mohon membuka folder spam jika anda tidak mendapati di folder masuk 
-          	
+          	Terimakasih telah melakukan pembelian. 
+          	<br>Detail pembelian beserta tatacara pembayaran telah kami kirimkan ke alamat email anda.
+          	<br>Mohon melakukan pembayaran sebelum 1x24 Jam dari waktu pembelian 
+          	<br>Kirimkan bukti pembayaran anda di menu <a style="font-size: 25px;color: #3DCD51" href="<?php echo site_url('member/riwayat-pembelian');?>">Riwayat Pembelian</a>
           </h3>
         </div>
       </div>

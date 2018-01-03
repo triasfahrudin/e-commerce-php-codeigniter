@@ -5,7 +5,7 @@
          <ul class="box-category">
             <?php foreach ($menus->result_array() as $menu) { ?>
             <li>
-               <a id="<?php echo $menu['slug']?>" href="<?php echo site_url($menu['slug'])?>" <?php echo $current_slug === $menu['slug'] ? 'class="active"' : ''?>><?php echo $menu['nama']?> <label id="label_count_<?php echo $menu['id']?>">0</label></a>
+               <a id="<?php echo $menu['slug']?>" href="<?php echo site_url($menu['slug'])?>"><?php echo $menu['nama']?> <label id="label_count_<?php echo $menu['id']?>">0</label></a>
                <?php $sub_menus = sub_menus($menu['id']);
                   if($sub_menus->num_rows() > 0){ ?>
                <ul>
@@ -44,7 +44,7 @@
                <p class="wrap_price"> <span class="price-old"><?php echo format_rupiah($pilihan['harga_lama'])?></span> <span class="price-new"><?php echo format_rupiah($pilihan['harga'])?></span> </p>
                <?php } ?>  
                <p class="submit">
-                  <input type="button" value="Beli" class="button">
+                  <input type="button" value="Beli" class="button" onclick="addtocart(<?php echo $pilihan['id']?>)">
                </p>
             </div>
             <?php } ?>
@@ -72,7 +72,7 @@
                <p class="wrap_price"> <span class="price-old"><?php echo format_rupiah($diskon['harga_lama'])?></span> <span class="price-new"><?php echo format_rupiah($diskon['harga'])?></span> </p>
                <?php } ?>  
                <p class="submit">
-                  <input type="button" value="Beli" class="button">
+                  <input type="button" value="Beli" class="button" onclick="addtocart(<?php echo $diskon['id']?>)">
                </p>
             </div>
             <?php } ?>
@@ -100,7 +100,7 @@
                <p class="wrap_price"> <span class="price-old"><?php echo format_rupiah($terbaru['harga_lama'])?></span> <span class="price-new"><?php echo format_rupiah($terbaru['harga'])?></span> </p>
                <?php } ?>  
                <p class="submit">
-                  <input type="button" value="Beli" class="button">
+                  <input type="button" value="Beli" class="button" onclick="addtocart(<?php echo $terbaru['id']?>)">
                </p>
             </div>
             <?php } ?>
@@ -109,73 +109,12 @@
    </div>
    <div class="clear"></div>
 </div>
+
 <div id="content">
-   <div class="breadcrumb"> &nbsp;<a href="<?php echo site_url()?>">Home&nbsp;</a> » &nbsp;Merk&nbsp;<a href="#"><?php echo $merk_slug?>&nbsp;</a> </div>
-   <h1><span class="h1-top">Merk&nbsp;<?php echo $merk_slug?></span></h1>
-  
-   <div class="product-filter">
-      <div class="display">
-         <label>Display:</label>
-         <p><span id="list" class="list_on"></span> <span id="grid" onclick="display('grid');"></span></p>
-      </div>
-      <div class="sort">
-         <label>Sort By:</label>
-         <select class="selectBox" onchange="sort_product(this)" id="sort_product">
-            <!-- <option value="1" selected="selected">Default</option> -->
-            <option value="atoz">Name (A - Z)</option>
-            <option value="ztoa">Name (Z - A)</option>
-            <option value="lowtohigh">Price (Low &gt; High)</option>
-            <option value="hightolow">Price (High &gt; Low)</option>
-            <!-- <option value="6">Rating (Highest)</option> -->
-            <!-- <option value="7">Rating (Lowest)</option> -->
-            <!-- <option value="8">Model (A - Z)</option> -->
-            <!-- <option value="9">Model (Z - A)</option> -->
-         </select>
-      </div>
-      <div class="limit">
-         <label>Show:</label>
-         <select class="selectBox" onchange="limit_product(this)" id="limit_product">
-            <option value="15" selected="selected">15</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <!-- <option value="75">75</option> -->
-            <!-- <option value="100">100</option> -->
-         </select>
-      </div>
-   </div>
-   <!-- <div class="product-compare"><a href="#" id="compare-total">Product Compare (0)</a></div> -->
-   <div class="product-list">
-     
-      <?php foreach ($produk->result_array() as $prod) { ?>
-        <div class="box-product">
-           <a class="image" href="<?php echo site_url($prod['kategori_slug'] . '/' . $prod['slug'])?>" title="View more"> <img src="<?php echo load_image('uploads/gambar_produk/' . $prod['gambar'],184,184,1,0)?>" alt=""></a>
-           <div class="list_grid_right">
-              <h3 class="name"><a href="<?php echo site_url($prod['kategori_slug'] . '/' . $prod['slug'])?>" title=""><?php echo $prod['nama']?></a></h3>
-              <p class="wrap_price"> <span class="price"><?php echo format_rupiah($prod['harga'])?></span> <!--<span class="price-tax">Ex Tax: $100.00</span>--> </p>
-              <p class="description"><?php echo limit_text($prod['deskripsi'],400)?></p>
-              <p class="submit" style="float: right">
-                 <input type="button" value="Beli" class="button" onclick="addtocart(<?php echo $prod['id']?>)">
-                 <!-- <a href="<?php echo site_url($prod['kategori_slug'] . '/' . $prod['slug'])?>" class="button">Detail</a> -->
-              </p>
-              <!-- <p class="links_add"> <a>Add to Wish List</a> <a>Add to Compare</a> </p> -->
-           </div>
-        </div>
-      <?php } ?>
-
-      
-   </div>
-   <div class="pagination">
-      <div class="results"><?php echo $this->pagination->create_links();?></div>
-   </div>
+    <div class="breadcrumb"> <a href="<?php echo site_url()?>"> Beranda</a> » <a href="#">Tentang kami</a> </div>
+    <h1><span class="h1-top">Tentang kami</span></h1>
+    <div class="information_content">
+      <?php echo get_settings('tentang-kami');?>
+    </div>
+  </div>
 </div>
-
-<script type="text/javascript">
-   display('<?php echo $layout["display"]?>');
-   $("#sort_product").val("<?php echo $layout['sort']?>");
-   $("#limit_product").val("<?php echo $layout['limit']?>");
-   
-   $(function () { 
-      $("SELECT").selectBox(); 
-   });
-
-</script>
