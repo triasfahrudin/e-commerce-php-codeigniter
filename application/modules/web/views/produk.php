@@ -118,7 +118,7 @@
          <div class="image">
             <a href="<?php echo load_image('uploads/gambar_produk/' .$produk['gambar'],590,590)?>" title="" class="cloud-zoom" id='zoom1' rel="adjustX: 0, adjustY:0">
                <img src="<?php echo load_image('uploads/gambar_produk/' .$produk['gambar'],590,590)?>" title="" alt="" id="image" />
-               <!-- <?php if($produk['status_harga'] === 'diskon'){ ?>
+              <!--  <?php if($produk['status_harga'] === 'diskon'){ ?>
                <span class="new">Sale</span>
                <?php } ?> -->
             </a>

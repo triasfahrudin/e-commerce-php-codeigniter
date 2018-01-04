@@ -35,17 +35,20 @@
                   <td class="name"><?php echo $trans['tgl_pemesanan']?></td>
                   <td class="model">
                     <?php 
-                    if($trans['status'] === 'belum-bayar' && $trans['bukti_bayar'] !== ""){ 
+                    if($trans['status'] === 'bayar-konfirmasi' && $trans['bukti_bayar'] !== ""){ 
                       echo "Menunggu validasi";
                     }else{ 
-                      echo $trans['status'];
+                      echo strtoupper($trans['status']) . '<br><br>';
+                      if($trans['status'] === 'dikirim'){
+                        echo "<a class='button' href='" . site_url('member/barang-sudah-terima/' . base64url_encode(generate_uuid() . '|' . $trans['id'] . '|' . generate_uuid()) ) ."'>Terima Barang</a>";
+                      }
                     } 
                     ?>  
 
                       
                   </td>
                   <td>
-                    <?php if($trans['status'] === 'belum-bayar'){ ?>
+                    <?php if(($trans['status'] === 'belum-bayar') || ($trans['status'] === 'bayar-konfirmasi')){ ?>
                      <form action="<?php echo site_url('member/upload-bukti/' . $trans['id'])?>" method="POST" enctype="multipart/form-data">
                        <input class="upload" name="buktibayar" onchange="this.form.submit()" multiple="" type="file">
                      </form>

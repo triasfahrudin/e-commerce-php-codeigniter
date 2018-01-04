@@ -42,7 +42,7 @@ class Member extends MX_Controller
 
     public function _page_output($data = null)
     {
-        // echo $this->session->userdata('user_id') .'lol';    
+        // echo $this->session->userdata('user_id') .'lol';
         $data['logged_in'] = $this->session->userdata('user_id');
         // $data['logged_in'] = $this->session->userdata('user_id');
         // $data['produk_terbaru'] = $this->latest_product(4);
@@ -225,7 +225,7 @@ class Member extends MX_Controller
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING       => "",
             CURLOPT_MAXREDIRS      => 10,
-            CURLOPT_TIMEOUT        => 30,
+            CURLOPT_TIMEOUT        => 300,
             CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST  => "GET",
             CURLOPT_HTTPHEADER     => array(
@@ -304,7 +304,13 @@ class Member extends MX_Controller
                 // $file_ext = $success['file_ext'];
 
                 $this->db->where('id', $transaksi_id);
-                $this->db->update('penjualan', array('bukti_bayar' => $filename,'tgl_konfirmasi_bayar' => date("Y-m-d H:i:s")));
+                $this->db->update('penjualan',
+                    array(
+                        'bukti_bayar'          => $filename,
+                        'status'               => 'bayar-konfirmasi',
+                        'tgl_konfirmasi_bayar' => date("Y-m-d H:i:s"),
+                    )
+                );
 
                 redirect('member/riwayat-pembelian', 'reload');
             }
@@ -320,7 +326,7 @@ class Member extends MX_Controller
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING       => "",
             CURLOPT_MAXREDIRS      => 10,
-            CURLOPT_TIMEOUT        => 30,
+            CURLOPT_TIMEOUT        => 300,
             CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST  => "GET",
             CURLOPT_SSL_VERIFYHOST => 0,
@@ -354,7 +360,7 @@ class Member extends MX_Controller
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING       => "",
             CURLOPT_MAXREDIRS      => 10,
-            CURLOPT_TIMEOUT        => 30,
+            CURLOPT_TIMEOUT        => 300,
             CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST  => "GET",
             CURLOPT_SSL_VERIFYHOST => 0,
@@ -541,7 +547,7 @@ class Member extends MX_Controller
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_ENCODING       => "",
                     CURLOPT_MAXREDIRS      => 10,
-                    CURLOPT_TIMEOUT        => 30,
+                    CURLOPT_TIMEOUT        => 300,
                     CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
                     CURLOPT_CUSTOMREQUEST  => "POST",
                     CURLOPT_POSTFIELDS     => "origin=$origin&destination=$destination&weight=$weight&courier=$courier",
@@ -692,8 +698,8 @@ class Member extends MX_Controller
                         );
 
                         //update stok produk akibat pembelian
-                        $this->db->set('stok', 'stok - ' . $qty, FALSE);
-                        $this->db->where('id',$id);
+                        $this->db->set('stok', 'stok - ' . $qty, false);
+                        $this->db->where('id', $id);
                         $this->db->update('produk');
                     }
 
@@ -743,6 +749,22 @@ class Member extends MX_Controller
         echo json_encode($qry->row());
     }
 
+    public function barang_sudah_terima()
+    {
+        $token_pembelian = explode('|', base64_decode($this->uri->segment(3, 'no-token')));
+
+        $penjualan_id = $token_pembelian[1];
+
+        $this->db->where('id', $penjualan_id);
+        $this->db->update('penjualan', array(
+            'status'      => 'selesai',
+            'tgl_selesai' => date("Y-m-d H:i:s"),
+        )
+        );
+
+        redirect(site_url('member/riwayat-pembelian'), 'reload');
+    }
+
     public function detail_transaksi()
     {
         $token_pembelian = explode('|', base64_decode($this->uri->segment(3, 'no-token')));
@@ -766,12 +788,12 @@ class Member extends MX_Controller
                         ');
         $this->db->join('produk b', 'a.produk_id = b.id', 'left');
         $this->db->join('kategori c', 'b.kategori_id = c.id', 'left');
-        $detail_transaksi = $this->db->get_where('penjualan_detail a',array('penjualan_id' => $penjualan_id));
+        $detail_transaksi = $this->db->get_where('penjualan_detail a', array('penjualan_id' => $penjualan_id));
 
         $data = array(
-            'page'             => 'detail_transaksi',
-            'transaksi'        => $this->db->get_where('penjualan', array('id' => $penjualan_id))->row_array(),
-            'dtrans' => $detail_transaksi,
+            'page'      => 'detail_transaksi',
+            'transaksi' => $this->db->get_where('penjualan', array('id' => $penjualan_id))->row_array(),
+            'dtrans'    => $detail_transaksi,
         );
         $this->_page_output($data);
 
